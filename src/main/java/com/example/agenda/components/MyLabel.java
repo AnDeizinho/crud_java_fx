@@ -1,4 +1,4 @@
-package com.example.agenda;
+package com.example.agenda.components;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

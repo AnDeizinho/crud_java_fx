@@ -1,10 +1,9 @@
-package com.example.agenda;
+package com.example.agenda.components;
 
 import com.example.agenda.model.BD;
 import com.example.agenda.model.Contato;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;

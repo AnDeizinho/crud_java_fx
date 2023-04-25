@@ -1,6 +1,7 @@
-package com.example.agenda;
+package com.example.agenda.controllers;
 
 import com.example.agenda.model.Contato;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -29,8 +30,11 @@ public class AddContato extends VBox {
     public void init(Contato contato)
     {
         this.setStyle("-fx-background-color:WHITE;");
+        this.setPadding(new Insets(50));
+        setStyle("-fx-background-color:WHITE;");
         this.contato = contato;
         txtnome = new TextField(contato.getName());
+        setMargin(txtnome, new Insets(10,30,20,30));
         txtsobrenome = new TextField(contato.getSobrenome());
         txtFone = new TextField(contato.getFone());
         txtEmail = new TextField(contato.getEmail());

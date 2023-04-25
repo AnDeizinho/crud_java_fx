@@ -1,16 +1,14 @@
-package com.example.agenda;
+package com.example.agenda.components;
 
+import com.example.agenda.controllers.AddContato;
 import com.example.agenda.model.Contato;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 import java.util.function.Predicate;
 

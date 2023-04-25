@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" style="-fx-background-color: #191970; -fx-alignment: center;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.agenda.MyVbox">
+<VBox alignment="CENTER" style="-fx-background-color: #191970; -fx-alignment: center;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.agenda.components.MyVbox">
    <ScrollPane>
      <content>
         <Pane  style="-fx-background-color: #191970;">

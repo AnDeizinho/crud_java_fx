@@ -1,17 +1,13 @@
-package com.example.agenda;
+package com.example.agenda.controllers;
 
+import com.example.agenda.controllers.AddContato;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,7 +26,7 @@ public class MainController implements Initializable {
         try{
             root = FXMLLoader.load(getClass().getResource(page+".fxml"));
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("vaiiiiii" + e.getMessage());
         }
         AP.setCenter(root);
     }
