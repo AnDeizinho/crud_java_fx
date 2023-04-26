@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" style="-fx-background-color: #191970; -fx-alignment: center;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.agenda.components.MyVbox">
+<VBox alignment="TOP_CENTER" style="-fx-background-color: #191970; -fx-alignment: center;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.agenda.components.MyVbox">
    <ScrollPane>
      <content>
-        <Pane  style="-fx-background-color: #191970;">
-           <VBox fx:id="vblista" alignment="CENTER" style="-fx-background-color: #191970;">
+        <Pane style="-fx-background-color: #191970;">
+           <VBox fx:id="vblista" alignment="TOP_CENTER" style="-fx-background-color: #191970;">
            </VBox>
         </Pane>
 

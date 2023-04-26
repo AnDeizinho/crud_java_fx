@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 import java.util.function.Predicate;
 
@@ -24,7 +25,7 @@ public class MyGridPane extends GridPane {
         Button edit = new Button("Editar");
         this.setAlignment(Pos.CENTER);
         this.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        this.setStyle("-fx-label-padding: 10;-fx-background-color: #303030;");
+        setStyle("-fx-border-color: #FFFFFF;-fx-background-color: #191970;");
         this.add(lblName,0,0);
         setColumnSpan(lblName,6);
 
