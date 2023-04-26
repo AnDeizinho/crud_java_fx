@@ -1,16 +1,16 @@
 package com.example.agenda.controllers;
 
+import com.example.agenda.components.MyLabel;
+import com.example.agenda.components.MyTextField;
 import com.example.agenda.model.Contato;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 
 public class AddContato extends VBox {
     public Contato contato;
@@ -27,25 +27,30 @@ public class AddContato extends VBox {
     {
         init(contato);
     }
+
+    private boolean updateMargin(Node n, Insets i)
+    {
+        setMargin(n,i);
+        return true;
+    }
     public void init(Contato contato)
     {
-        this.setStyle("-fx-background-color:WHITE;");
-        this.setPadding(new Insets(50));
-        setStyle("-fx-background-color:WHITE;");
+        this.setStyle("-fx-background-color:#191970;");
         this.contato = contato;
-        txtnome = new TextField(contato.getName());
-        setMargin(txtnome, new Insets(10,30,20,30));
-        txtsobrenome = new TextField(contato.getSobrenome());
-        txtFone = new TextField(contato.getFone());
-        txtEmail = new TextField(contato.getEmail());
+        txtnome = new MyTextField(contato.getName(), this::updateMargin);
+        txtsobrenome = new MyTextField(contato.getSobrenome(), this::updateMargin);
+        txtFone = new MyTextField(contato.getFone(), this::updateMargin);
+        txtEmail = new MyTextField(contato.getEmail(), this::updateMargin);
         btnsalvar = new Button("Salvar");
-        this.getChildren().add(new Label("Nome: "));
+        btnsalvar.setMinWidth(150);
+        setMargin(btnsalvar, new Insets(30));
+        this.getChildren().add(new MyLabel("Nome:", 18));
         this.getChildren().add(txtnome);
-        this.getChildren().add(new Label("Sobrenome: "));
+        this.getChildren().add(new MyLabel("Sobrenome: ", 18));
         this.getChildren().add(txtsobrenome);
-        this.getChildren().add(new Label("Fone : "));
+        this.getChildren().add(new MyLabel("Fone : ",18));
         this.getChildren().add(txtFone);
-        this.getChildren().add(new Label("Email: "));
+        this.getChildren().add(new MyLabel("Email: ",18));
         this.getChildren().add(txtEmail);
         this.getChildren().add(btnsalvar);
     }
