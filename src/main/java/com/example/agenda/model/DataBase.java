@@ -19,7 +19,11 @@ public class DataBase {
     private final String FONE = FONE_COLUMN.split(" ")[0];
     private final String EMAIL = EMAIL_COLUMN.split(" ")[0];
     private final String INSERT_COMMAND = String.format("INSERT INTO %s (%s, %s,%s,%s) VALUES (?,?,?,?);",
-            TABLE_NAME, FIRST_NAME, LAST_NAME, FONE, EMAIL);;
+            TABLE_NAME, FIRST_NAME, LAST_NAME, FONE, EMAIL);
+
+    private final String UPDATE_COMMAND = String.format("UPDATE %s SET %s = ?, %s = ?, %s = ?, %s = ? WHERE id = ",
+            TABLE_NAME, FIRST_NAME, LAST_NAME, FONE, EMAIL);
+    private final String DELETE_COMMAND = String.format("DELETE FROM %s WHERE id = ", TABLE_NAME);
     public DataBase()
     {
         execute(String.format(CREATE_COMMAND, TABLE_NAME, ID_COLUMN,
@@ -63,24 +67,39 @@ public class DataBase {
             return contatos;
         }
     }
-    public void insert(Contato contato)
+    private int prepStatement(String command, Contato contato)
     {
+        int ret = -1;
         try {
             open();
-            PreparedStatement p = con.prepareStatement(INSERT_COMMAND);
+            PreparedStatement p = con.prepareStatement(command);
             p.setString(1, contato.getName());
             p.setString(2, contato.getSobrenome());
             p.setString(3, contato.getFone());
             p.setString(4, contato.getEmail());
-            if (p.executeUpdate()!= 1)
-                throw new Exception("Falha ao inserir novo contato");
+            ret = p.executeUpdate();
 
         }catch (Exception error)
         {
             System.out.println(error.getMessage());
-        }finally {
-            close();
+            ret = -2;
         }
+        finally
+        {
+            close();
+            return ret;
+        }
+    }
+    public void insert(Contato contato)
+    {
+        prepStatement(INSERT_COMMAND, contato);
+    }
+    public void update(Contato contato){
+        prepStatement(UPDATE_COMMAND + contato.getId(), contato);
+    }
+    public void delete(int id)
+    {
+        execute(DELETE_COMMAND + id);
     }
     public boolean open()
     {

@@ -38,9 +38,25 @@ public class AddContato extends VBox {
         setMargin(n,i);
         return true;
     }
+    private void clearFields()
+    {
+        this.contato.setId(0);
+        this.contato.setFone("");
+        this.contato.setSobrenome("");
+        this.contato.setName("");
+        this.contato.setEmail("");
+        txtsobrenome.clear();
+        txtnome.clear();
+        txtFone.clear();
+        txtEmail.clear();
+    }
     public void onSalvarClick(MouseEvent event)
     {
-        DataContext.db.insert(this.contato);
+        if(this.contato.getId() == 0)
+            DataContext.db.insert(this.contato);
+        else
+            DataContext.db.update(this.contato);
+        clearFields();
     }
     public void onNameChange(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1)
     {

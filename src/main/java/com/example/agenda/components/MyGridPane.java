@@ -2,6 +2,7 @@ package com.example.agenda.components;
 
 import com.example.agenda.controllers.AddContato;
 import com.example.agenda.model.Contato;
+import com.example.agenda.model.DataContext;
 import javafx.event.EventHandler;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
@@ -50,6 +51,7 @@ public class MyGridPane extends GridPane {
         delete.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                DataContext.db.delete(contato.getId());
                 context.getChildren().removeIf(new Predicate<Node>() {
                     @Override
                     public boolean test(Node node) {
